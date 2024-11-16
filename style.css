@@ -58,17 +58,23 @@ body{
     gap: 13px;
     position: absolute;
     bottom: 0;
+    padding: 10px 0;
 
 }
 
 .footer a {
-    color:cadetblue;
+    color: #1DB954; /* cadetblue, another color i liked */
 }
+
+/* right box styling */
 
 .right{
     width: 75vw; /* giving box 2 the width of 75 viweport width */
     margin: 14px 0;
+    position: relative;
 }
+
+/* designing for the playlist card */
 .header {
     display: flex;
     justify-content: space-between;
@@ -88,6 +94,9 @@ body{
     gap: 10px;
     flex-wrap: wrap;
     margin: 30px;
+    max-width: 70vw;
+    max-height: 70vh;
+    overflow-y: scroll;
 }
 .card{
     position: relative;
@@ -104,22 +113,85 @@ body{
     object-fit: contain;
 
 }
+
+/* play button */
 .play-button {
     display: inline-block;
     cursor: pointer;
     transition: transform 0.3s ease;
     position: absolute;
-    right: 15px;
-    top:168px;
+    right: 18px;
+    top:170px;
+ /*    opacity: 0; */
 
 }
 
 .play-button:hover {
-    transform: scale(1.1);
+   /*  width: 40px;
+    height: 40px;
+    display: block; */
+    /* opacity: 1; */
+    top:165px;
+    transform: scale(1.2);
+    /* transition: all 0.5s ease-in-out; */
 }
 
 .play-icon {
-    width: 40px;
-    height: 40px;
+    width: 35px;
+    height: 35px;
     display: block;
+}
+.signupbtn{
+    font-weight: bold;    
+    color: white;
+    border:none;
+    outline: none;
+    cursor: pointer;
+   /*  font-size: 16px; */
+    /* background-color:rgb(43, 41, 41); */
+    background: none;
+    width:90px ;
+    opacity: 0.5;
+    padding: 10px;
+
+}
+.signupbtn:hover{
+    /* font-size: 17px; */
+    background-color: #1DB954;
+    opacity: 1;
+    border-radius: 21px;
+    color: black;
+
+}
+.loginbtn{
+    background-color: white;
+    border-radius: 21px;
+    color:black;
+    font-weight: bold;
+    padding: 10px  17px ;
+    cursor: pointer;
+    border:none;
+    outline: none;
+   
+    
+}
+.loginbtn:hover{
+    background-color: #1DB954;
+}
+
+
+
+.playbar{
+    position:absolute;
+    bottom:0;
+    width: 100%;
+    background-color: #1DB954;
+}
+
+/* song player */
+
+.songsbuttons{
+    display: flex;
+    justify-content: center;
+    gap: 20px;
 }
