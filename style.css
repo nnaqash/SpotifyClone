@@ -1,197 +1,190 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
 
-
-*{
-    margin: 0;
-    padding: 0;
-    font-family: "Montserrat", sans-serif;
-
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Montserrat", sans-serif;
 }
 
-body{
-    background-color: black;
-    color:white;
+body {
+  background-color: black;
+  color: white;
 }
 
 /* left box */
-.left{
-    width: 25vw; /* giving box 1 the width of 25 viweport width */
-    padding: 10px;
+.left {
+  width: 25vw; /* giving box 1 the width of 25 viweport width */
+  padding: 10px;
 }
 
-
-
-.home{
-    
+.home {
 }
 /* targeting the li */
-.home ul li{
-    display: flex;/* using display flex to bring the text and icons next to each other */
-    width: 13px;
-    gap:15px; /* gap property to put some space between the icon and text */
-    list-style: none; /* getting rid of the bullet points */
-    padding-top: 15px;
-    font-weight: bold;
+.home ul li {
+  display: flex; /* using display flex to bring the text and icons next to each other */
+  width: 13px;
+  gap: 15px; /* gap property to put some space between the icon and text */
+  list-style: none; /* getting rid of the bullet points */
+  padding-top: 15px;
+  font-weight: bold;
 }
 
-.heading{
-    display: flex;/* using display flex to bring the text and icons next to each other */
-    width: 100%;
-    gap:15px; /* gap property to put some space between the icon and text */
-    padding: 20px 15px;
-    font-weight: bold;
-    align-items: center; /* vertically aligns */
-    font-size: 14px;
-
+.heading {
+  display: flex; /* using display flex to bring the text and icons next to each other */
+  width: 100%;
+  gap: 15px; /* gap property to put some space between the icon and text */
+  padding: 20px 15px;
+  font-weight: bold;
+  align-items: center; /* vertically aligns */
+  font-size: 14px;
 }
 .heading img {
-    width: 20px;
+  width: 20px;
 }
-.library{
-    min-height: 80vh;
-    position: relative;
+.library {
+  min-height: 80vh;
+  position: relative;
 }
-.footer{
-    display: flex;
-    font-size: 10px;
-    color: cadetblue;
-    gap: 13px;
-    position: absolute;
-    bottom: 0;
-    padding: 10px 0;
-
+.footer {
+  display: flex;
+  font-size: 10px;
+  color: cadetblue;
+  gap: 13px;
+  position: absolute;
+  bottom: 0;
+  padding: 10px 0;
 }
 
 .footer a {
-    color: #1DB954; /* cadetblue, another color i liked */
+  color: #1db954; /* cadetblue, another color i liked */
 }
 
 /* right box styling */
 
-.right{
-    width: 75vw; /* giving box 2 the width of 75 viweport width */
-    margin: 14px 0;
-    position: relative;
+.right {
+  width: 75vw; /* giving box 2 the width of 75 viweport width */
+  margin: 14px 0;
+  position: relative;
 }
 
 /* designing for the playlist card */
 .header {
-    display: flex;
-    justify-content: space-between;
-    background-color: rgb(26, 25, 25);
+  display: flex;
+  justify-content: space-between;
+  background-color: rgb(26, 25, 25);
 }
 
-.header > *{
-    padding: 20px;
+.header > * {
+  padding: 20px;
 }
 
-.spotifyPlaylists{
-    padding: 15px;
+.spotifyPlaylists {
+  padding: 15px;
 }
 
-.cardContainer{
-    display: flex;
-    gap: 10px;
-    flex-wrap: wrap;
-    margin: 30px;
-    max-width: 70vw;
-    max-height: 70vh;
-    overflow-y: scroll;
+.cardContainer {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin: 30px;
+  max-width: 70vw;
+  max-height: 70vh;
+  overflow-y: scroll;
 }
-.card{
-    position: relative;
-    width : 200px;
-    padding: 10px;
-    border-radius: 5px;
-    background-color:rgb(43, 41, 41);
+.card {
+  position: relative;
+  width: 200px;
+  padding: 10px;
+  border-radius: 5px;
+  background-color: rgb(43, 41, 41);
 }
-.card >*{
-    padding-top: 10px;
+.card > * {
+  padding-top: 10px;
 }
-.card img{
-    width:100%;
-    object-fit: contain;
-
+.card img {
+  width: 100%;
+  object-fit: contain;
 }
 
 /* play button */
 .play-button {
-    display: inline-block;
-    cursor: pointer;
-    transition: transform 0.3s ease;
-    position: absolute;
-    right: 18px;
-    top:170px;
- /*    opacity: 0; */
-
+  display: inline-block;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+  position: absolute;
+  right: 18px;
+  top: 170px;
+  /*    opacity: 0; */
 }
 
 .play-button:hover {
-   /*  width: 40px;
+  /*  width: 40px;
     height: 40px;
     display: block; */
-    /* opacity: 1; */
-    top:165px;
-    transform: scale(1.2);
-    /* transition: all 0.5s ease-in-out; */
+  /* opacity: 1; */
+  top: 165px;
+  transform: scale(1.2);
+  /* transition: all 0.5s ease-in-out; */
 }
 
 .play-icon {
-    width: 35px;
-    height: 35px;
-    display: block;
+  width: 35px;
+  height: 35px;
+  display: block;
 }
-.signupbtn{
-    font-weight: bold;    
-    color: white;
-    border:none;
-    outline: none;
-    cursor: pointer;
-   /*  font-size: 16px; */
-    /* background-color:rgb(43, 41, 41); */
-    background: none;
-    width:90px ;
-    opacity: 0.5;
-    padding: 10px;
-
+.signupbtn {
+  font-weight: bold;
+  color: white;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  /*  font-size: 16px; */
+  /* background-color:rgb(43, 41, 41); */
+  background: none;
+  width: 90px;
+  opacity: 0.5;
+  padding: 10px;
 }
-.signupbtn:hover{
-    /* font-size: 17px; */
-    background-color: #1DB954;
-    opacity: 1;
-    border-radius: 21px;
-    color: black;
-
+.signupbtn:hover {
+  /* font-size: 17px; */
+  background-color: #1db954;
+  opacity: 1;
+  border-radius: 21px;
+  color: black;
 }
-.loginbtn{
-    background-color: white;
-    border-radius: 21px;
-    color:black;
-    font-weight: bold;
-    padding: 10px  17px ;
-    cursor: pointer;
-    border:none;
-    outline: none;
-   
-    
+.loginbtn {
+  background-color: white;
+  border-radius: 21px;
+  color: black;
+  font-weight: bold;
+  padding: 10px 17px;
+  cursor: pointer;
+  border: none;
+  outline: none;
 }
-.loginbtn:hover{
-    background-color: #1DB954;
+.loginbtn:hover {
+  background-color: #1db954;
 }
 
-
-
-.playbar{
-    position:absolute;
-    bottom:0;
-    width: 100%;
-    background-color: #1DB954;
+.playbar {
+  position: absolute;
+  bottom: 0;
+  width: 95%;
+  background-color: #ffffff;
 }
 
 /* song player */
 
-.songsbuttons{
-    display: flex;
-    justify-content: center;
-    gap: 20px;
+.songsbuttons {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.songList ul {
+  padding: 0 42px;
+  list-style: none;
+}
+.songList ul li {
+  list-style-type: decimal;
 }
