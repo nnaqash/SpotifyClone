@@ -167,10 +167,12 @@ body {
 }
 
 .playbar {
-  position: absolute;
-  bottom: 0;
-  width: 95%;
+  position: fixed;
+  bottom: 30px;
+  width: 71vw;
   background-color: #ffffff;
+  border-radius: 50px;
+  padding: 10px 0;
 }
 
 /* song player */
@@ -181,10 +183,44 @@ body {
   gap: 20px;
 }
 
+.songList{
+  height : 550px;
+  overflow: auto;
+  margin-bottom: 45px;
+}
 .songList ul {
-  padding: 0 42px;
+  padding: 0 12px;
   list-style: none;
 }
 .songList ul li {
   list-style-type: decimal;
+  display: flex;
+  justify-content: space-between;
+  gap:10px;
+  cursor: pointer;
+  padding: 12px 13px ;
+  border: 1px solid white;
+  margin: 12px 0;
+  border-radius: 5px;
+
+
+}
+
+.songList .info{
+  font-size: 14px;
+  width: 344px;
+}
+
+.playNow{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.playNow span{
+  font-size: 13px;
+  width: 64px;
+  padding-right: 10px;
+  
 }
