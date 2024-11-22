@@ -36,7 +36,16 @@ async function main() {
   for (const song of songs) {
     songUl.innerHTML =
       songUl.innerHTML +
-      `<li> ${song.replaceAll("http://127.0.0.1:5500/songs/", "")} </li>`;
+      `<li><img class="invert" src="./img/music.svg" alt="music icon">
+                <div class="info">
+                  <div>${song.replaceAll("http://127.0.0.1:5500/songs/", "")}</div>
+                  <div>NCS</div>
+                </div>
+                <div class="playNow">
+                  <span>Play Now</span>
+                  <img class ="invert" src="./img/play.svg" alt="play icon">
+                </div></li>`;
+      
   }
   //http://127.0.0.1:5500/songs/after-the-rain-fss-no-copyright-music-252574.mp3
 
