@@ -1,5 +1,7 @@
 //console.log("js time boieee");
 
+let currentSong = new Audio(); // global variable
+
 /* using fetch api to get the songs */
 
 /* creating a main function to run aysnc await cause await is only avaliable that way */
@@ -21,8 +23,19 @@ async function getSongs(params) {
   }
   return songs;
 }
+
+/* play music funtion */
+
+const playMusic=(track)=>{
+  //let audio = new Audio("/songs/" + track)
+  currentSong.src = "/songs/" + track
+  currentSong.play();
+  play.src="img/pause.svg"
+}
 // aysnc funtion cause above  function returns a pending promisse so created a main function and called the response in that
 async function main() {
+
+  
   // getting the list of the songs
   let songs = await getSongs();
   console.log(songs);
@@ -47,14 +60,66 @@ async function main() {
                 </div></li>`;
       
   }
-  //http://127.0.0.1:5500/songs/after-the-rain-fss-no-copyright-music-252574.mp3
 
-  //play song code from stack overflow
-  var audio = new Audio(songs[0]);
-  //audio.play();
-
-  audio.addEventListener("loadeddata", () => {
-    console.log(audio.duration, audio.currentSrc, audio.currentTime);
+  /* attaching event listener to each song */
+  //getting the lis in the songList in an array
+  Array.from(document.querySelector(".songList").getElementsByTagName("li")).forEach(element => {
+    element.addEventListener('click', e =>{
+      console.log(element.querySelector(".info").firstElementChild.innerHTML)
+      playMusic(element.querySelector(".info").firstElementChild.innerHTML.trim())
+    })
+    console.log(element)
   });
+  
+  /* play pause and next */
+
+  //event listner for play and pause
+  play.addEventListener("click",()=>{
+    if(currentSong.paused){
+      currentSong.play()
+      play.src="img/play.svg"
+    }else{
+      currentSong.pause();
+      play.src="img/pause.svg"
+    }
+  })
 }
 main(); // caling main
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//http://127.0.0.1:5500/songs/after-the-rain-fss-no-copyright-music-252574.mp3
+
+  //play song code from stack overflow
+  //var audio = new Audio(songs[0]);
+  //audio.play();
+
+ /*  audio.addEventListener("loadeddata", () => {
+    console.log(audio.duration, audio.currentSrc, audio.currentTime);
+  }); */

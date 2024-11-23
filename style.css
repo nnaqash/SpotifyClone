@@ -170,9 +170,11 @@ body {
   position: fixed;
   bottom: 30px;
   width: 71vw;
-  background-color: #ffffff;
-  border-radius: 50px;
-  padding: 10px 0;
+  height: 40px;
+  background-color: #d4d0d0bb;
+  border-radius: 15px;
+  padding: 6px 0;
+  filter: invert(1);
 }
 
 /* song player */
@@ -183,6 +185,9 @@ body {
   gap: 20px;
 }
 
+.songsbuttons img{
+  cursor: pointer;
+}
 .songList{
   height : 550px;
   overflow: auto;
@@ -223,4 +228,22 @@ body {
   width: 64px;
   padding-right: 10px;
   
+}
+
+.seekbar{
+  height: 2px;
+  width: 70vw;
+  background:  rgb(43, 41, 41);
+  border-radius: 15px;
+  position: absolute;
+  bottom: 9px;
+  margin-left:8px ;
+}
+.circle{
+  width: 20px;
+  height: 20px;
+  position: relative;
+  bottom: 9px;
+  border-radius: 15px;
+  background-color: rgb(43, 41, 41);
 }
