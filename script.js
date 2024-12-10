@@ -2,6 +2,30 @@
 
 let currentSong = new Audio(); // global variable
 
+function secondsToMinutesSeconds(seconds) {
+  if(isNaN(seconds)|| seconds<0){
+    return "Invalid input"
+  }
+
+
+  // Calculate the total minutes by dividing seconds by 60 and rounding down.
+
+
+  const minutes = Math.floor(seconds / 60);
+  
+  // Calculate the remaining seconds using the modulus operator.
+  const remainingSeconds = Math.floor(seconds % 60);
+
+  // Ensure minutes and seconds are displayed with two digits.
+  const formattedMinutes = String(minutes).padStart(2, '0');
+  const formattedSeconds = String(remainingSeconds).padStart(2, '0');
+
+  // Return the formatted time string in MM:SS format.
+  return `${formattedMinutes}:${formattedSeconds}`;
+}
+
+
+
 /* using fetch api to get the songs */
 
 /* creating a main function to run aysnc await cause await is only avaliable that way */
@@ -9,7 +33,7 @@ async function getSongs(params) {
   let a = await fetch("http://127.0.0.1:5500/songs/"); // fetching the URL of the songs
 
   let response = await a.text(); // awaiting the response
-  console.log(response);
+  //console.log(response);
   let div = document.createElement("div"); // creating a div ?
   div.innerHTML = response;
   let as = div.getElementsByTagName("a"); // targetinng all the a tags which have the url of the songs
@@ -26,19 +50,24 @@ async function getSongs(params) {
 
 /* play music funtion */
 
-const playMusic=(track)=>{
-  //let audio = new Audio("/songs/" + track)
-  currentSong.src = "/songs/" + track
-  currentSong.play();
-  play.src="img/pause.svg"
-}
-// aysnc funtion cause above  function returns a pending promisse so created a main function and called the response in that
-async function main() {
+const playMusic = (track, pause = false) => {
+  const songPath = track.startsWith("http") ? track : `/songs/${track}`;
+  currentSong.src = songPath;
 
-  
+  if (!pause) {
+    currentSong.play();
+    document.querySelector("#play").src = "img/pause.svg";
+  }
+
+  document.querySelector(".songsInfo").innerHTML = decodeURI(songPath.split("/").pop());
+  document.querySelector(".songtime").innerHTML = "00:00/00:00";
+};
+// aysnc funtion cause above  function returns a pending promisse so created a main function and called the response in that
+async function main() {  
   // getting the list of the songs
   let songs = await getSongs();
-  console.log(songs);
+  playMusic(songs[0],true)
+  //console.log(songs);
 
   /* listing all the songs under library page */
   //creating songUl variable and targetting songlist class using queryselector and in the class get all the ul at index 0
@@ -68,7 +97,7 @@ async function main() {
       console.log(element.querySelector(".info").firstElementChild.innerHTML)
       playMusic(element.querySelector(".info").firstElementChild.innerHTML.trim())
     })
-    console.log(element)
+    //console.log(element)
   });
   
   /* play pause and next */
@@ -77,11 +106,17 @@ async function main() {
   play.addEventListener("click",()=>{
     if(currentSong.paused){
       currentSong.play()
-      play.src="img/play.svg"
+      play.src="img/pause.svg"
     }else{
       currentSong.pause();
-      play.src="img/pause.svg"
+      play.src="img/play.svg"
     }
+  })
+
+  // listn for timeupdate event listener
+  currentSong.addEventListener("timeupdate", ()=>{
+   // console.log(currentSong.currentTime, currentSong.duration);
+    document.querySelector(".songtime").innerHTML = `${secondsToMinutesSeconds(currentSong.currentTime)}/${secondsToMinutesSeconds(currentSong.duration)}`
   })
 }
 main(); // caling main

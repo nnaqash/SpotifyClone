@@ -247,3 +247,13 @@ body {
   border-radius: 15px;
   background-color: rgb(43, 41, 41);
 }
+
+.aboveBar{
+  display: flex;
+  justify-content: space-between;
+}
+
+.songsInfo , .songtime{
+  color: black;
+  padding: 0 10px;
+}
