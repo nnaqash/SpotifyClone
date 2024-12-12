@@ -89,7 +89,7 @@ body {
   margin: 30px;
   max-width: 70vw;
   max-height: 70vh;
-  overflow-y: scroll;
+  overflow-y: auto;
 }
 .card {
   position: relative;
@@ -170,7 +170,7 @@ body {
   position: fixed;
   bottom: 30px;
   width: 71vw;
-  height: 40px;
+  min-height: 40px;
   background-color: #d4d0d0bb;
   border-radius: 15px;
   padding: 6px 0;
@@ -252,9 +252,58 @@ body {
 .aboveBar{
   display: flex;
   justify-content: space-between;
+  margin: 20px 0;
 }
 
 .songsInfo , .songtime{
   color: black;
   padding: 0 10px;
+}
+.hamburger{
+  display: none;
+}
+.hamburgerContainer{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap:14px
+}
+.close{
+  display: none;
+}
+/* Media Queries */
+
+@media (max-width: 1400px){
+  .left{
+    background-color: black;
+    position: absolute;
+    left:-120%;
+    transition: all .3s;
+    z-index: 1;
+    width: 373px;
+  }
+  .close{
+    position: absolute;
+    right: 8px;
+    top:25px;
+    width: 35px;
+  }
+  .right{
+    width: 100vw;
+
+  }
+  .playbar{
+    width: 88vw;
+  }
+  .seekbar{
+    width: 87vw;
+  }
+
+  .hamburger{
+    display: block;
+  }
+  .close{
+    display: block;
+  }
+
 }

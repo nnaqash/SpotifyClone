@@ -129,6 +129,16 @@ async function main() {
     //console.log(e.target, e.offsetX)
 
   })
+
+  // add eventListner for hamburger
+  document.querySelector(".hamburger").addEventListener("click",()=>{
+    document.querySelector(".left").style.left ="0"
+  })
+    // add eventListner for close button/icon
+    document.querySelector(".close").addEventListener("click",()=>{
+      document.querySelector(".left").style.left ="-120%"
+    })
+
 }
 main(); // caling main
 
