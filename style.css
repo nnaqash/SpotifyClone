@@ -262,12 +262,23 @@ body {
   justify-content: space-between;
   margin: 20px 0;
 }
+
 .songsInfo{
-  /* width: 250px; */
-}
-.songsInfo , .songtime{
+  
   color: black;
   padding: 0 10px;
+} 
+.songtime{
+  color: black;
+  padding: 0 10px;
+
+}
+.volume{
+  /* width: 120px; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
 }
 .hamburger{
   display: none;
@@ -280,6 +291,12 @@ body {
 }
 .close{
   display: none;
+}
+.volTime{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
 }
 /* Media Queries */
 
@@ -332,6 +349,14 @@ body {
     align-items: center;
   }
   .songsInfo{
+    /* width: 0; */
+  }
+  .volTime{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-direction: column;
+    gap: 13px;
     width: 0;
   }
 
