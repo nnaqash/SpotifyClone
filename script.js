@@ -199,6 +199,12 @@ async function main() {
     }
   });
 
+  // add event listner for volume change
+  document.querySelector(".range").getElementsByTagName("input")[0].addEventListener("change",(e)=>{
+    //console.log(e)
+    //because the value for volume is between 0-1
+    currentSong.volume=parseInt(e.target.value)/100
+  })
 
 
 }

@@ -102,6 +102,12 @@ body {
   position: relative;
   transition: all .9s;
 }
+
+.card:hover{
+  cursor: pointer;
+  
+  background-color: #4b4a4a;
+}
 .card > * {
   padding-top: 10px;
 }
@@ -279,6 +285,7 @@ body {
   justify-content: center;
   align-items: center;
   gap: 12px;
+  cursor: pointer;
 }
 .hamburger{
   display: none;
@@ -297,6 +304,10 @@ body {
   justify-content: center;
   align-items: center;
   
+  
+}
+.range{
+  cursor: pointer;
 }
 /* Media Queries */
 
@@ -336,8 +347,9 @@ body {
     display: block;
   }
   .card{
-    width: 90vw
+    width: 50vw
   }
+ 
   .cardContainer{
     margin: 0;
     justify-content: center;
@@ -360,4 +372,10 @@ body {
     width: 0;
   }
 
+}
+
+@media (max-width: 450px){
+  .card{
+    width: 85vw
+  }
 }
