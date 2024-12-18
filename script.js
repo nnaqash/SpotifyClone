@@ -208,21 +208,44 @@ async function main() {
     }
   });
 
-  // Time update listener
-  currentSong.addEventListener("timeupdate", () => {
-    document.querySelector(".songtime").innerHTML = `${secondsToMinutesSeconds(
-      currentSong.currentTime
-    )}/${secondsToMinutesSeconds(currentSong.duration)}`;
-    document.querySelector(".circle").style.left =
-      (currentSong.currentTime / currentSong.duration) * 100 + "%";
-  });
+// Event listener for updating the song's playback time and seekbar progress
+currentSong.addEventListener("timeupdate", () => {
+  // Check if the duration is valid to avoid invalid calculations
+  if (!currentSong.duration || isNaN(currentSong.duration)) return;
 
-  // Seekbar event listener
-  document.querySelector(".seekbar").addEventListener("click", (e) => {
-    let percent = (e.offsetX / e.target.getBoundingClientRect().width) * 100;
-    document.querySelector(".circle").style.left = percent + "%";
+  // Update the displayed song time (current time and duration)
+  document.querySelector(".songtime").innerHTML = `${secondsToMinutesSeconds(
+    currentSong.currentTime
+  )}/${secondsToMinutesSeconds(currentSong.duration)}`;
+
+  // Calculate the percentage of the song played
+  const percentPlayed = (currentSong.currentTime / currentSong.duration) * 100;
+
+  // Update the position of the seekbar's progress indicator (circle)
+  const circle = document.querySelector(".gola");
+  if (circle) {
+    circle.style.left = `${percentPlayed}%`; // Move the circle to the correct position
+  }
+});
+
+// Event listener for seeking within the song using the seekbar
+document.querySelector(".seekbar").addEventListener("click", (e) => {
+  const seekbar = e.target.getBoundingClientRect(); // Get the seekbar dimensions
+  const percent = (e.offsetX / seekbar.width) * 100; // Calculate the click position as a percentage
+
+  // Update the song's current playback time
+  if (currentSong.duration && !isNaN(currentSong.duration)) {
     currentSong.currentTime = (currentSong.duration * percent) / 100;
-  });
+  }
+
+  // Update the position of the progress indicator (circle)
+  const circle = document.querySelector(".circle");
+  if (circle) {
+    circle.style.left = `${percent}%`;
+  }
+});
+
+
 
   // Previous button
   prev.addEventListener("click", () => {

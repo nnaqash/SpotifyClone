@@ -157,6 +157,12 @@ body {
   fill: black; /* Make the triangle black */
 }
 
+.circle {
+  position: absolute; /* Ensure it can move along the seekbar */
+  top: 50%; /* Center vertically */
+  transform: translateY(-50%); /* Adjust for perfect centering */
+}
+
 
 .signupbtn {
   font-weight: bold;
@@ -270,7 +276,7 @@ body {
   margin-left:8px ;
   cursor: pointer;
 }
-.circle{
+.gola{
   width: 15px;
   height: 15px;
   position: relative;
