@@ -115,33 +115,55 @@ body {
   width: 100%;
   object-fit: contain;
 }
-
-/* play button */
+/* Play Button Styling */
 .play-button {
-  display: inline-block;
-  cursor: pointer;
-  transition: transform 0.3s ease;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   position: absolute;
   right: 18px;
   top: 170px;
-  /*    opacity: 0; */
+  cursor: pointer;
+  transition: transform 0.3s ease; /* Smooth scale effect */
 }
 
 .play-button:hover {
-  /*  width: 40px;
-    height: 40px;
-    display: block; */
-  /* opacity: 1; */
-  top: 165px;
-  transform: scale(1.2);
-  /* transition: all 0.5s ease-in-out; */
+  transform: scale(1.2); /* Enlarge on hover */
+  top: 165px; /* Slight adjustment for hover */
 }
 
-.play-icon {
-  width: 35px;
-  height: 35px;
+.play-button .circle {
+  width: 40px; /* Circle size */
+  height: 40px; /* Match width for perfect circle */
+  background-color: #1DB954; /* Spotify green */
+  border-radius: 50%; /* Makes it circular */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: background-color 0.3s ease; /* Smooth color transition */
+}
+
+.play-button .circle:hover {
+  background-color: #1ed760; /* Lighter green on hover */
+}
+
+.play-button svg {
+  width: 22px; /* Larger play icon */
+  height: 22px; /* Match width for proper scaling */
   display: block;
 }
+
+.play-button svg path {
+  fill: black; /* Make the triangle black */
+}
+
+.circle {
+  position: absolute; /* Ensure it can move along the seekbar */
+  top: 50%; /* Center vertically */
+  transform: translateY(-50%); /* Adjust for perfect centering */
+}
+
+
 .signupbtn {
   font-weight: bold;
   color: white;
@@ -254,7 +276,7 @@ body {
   margin-left:8px ;
   cursor: pointer;
 }
-.circle{
+.gola{
   width: 15px;
   height: 15px;
   position: relative;
