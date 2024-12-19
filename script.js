@@ -1,5 +1,4 @@
 /* Global Variables */
-const BASE_URL = location.origin; // Automatically detects the app's base URL
 let currentSong = new Audio(); // global variable
 let songs; // Array to store the list of songs
 let currFolder; // Variable to store the current folder being accessed
@@ -18,33 +17,66 @@ function secondsToMinutesSeconds(seconds) {
 
 
 /* using fetch api to get the songs */
-/* Fetch Songs */
+
 async function getSongs(folder) {
-  currFolder = folder;
+  currFolder = folder; // Set current folder
   try {
-    let response = await fetch(`${BASE_URL}/${folder}`);
-    if (!response.ok) throw new Error(`HTTP Error: ${response.status}`);
-    let textResponse = await response.text();
-    let div = document.createElement("div");
-    div.innerHTML = textResponse;
-    let as = div.getElementsByTagName("a");
-    let songs = [];
-    for (let element of as) {
+    let response = await fetch(`${folder}`); // Fetch the folder contents
+    let textResponse = await response.text(); // Get response text
+    let div = document.createElement("div"); // Create a div element to parse the response
+    div.innerHTML = textResponse; // Set the innerHTML of the div to the response
+    let as = div.getElementsByTagName("a"); // Get all anchor elements (links)
+    let songs = []; // Initialize the songs array
+
+    // Loop through all anchor elements to find MP3 files
+    for (let index = 0; index < as.length; index++) {
+      const element = as[index];
       if (element.href.endsWith(".mp3")) {
-        songs.push(element.href);
+        let cleanHref = element.href.replace(`${folder}/${folder}`, folder); // Remove duplicate folders
+        songs.push(cleanHref); // Add the clean URL to the songs array
       }
     }
-    if (songs.length === 0) {
-      document.querySelector(".songList").innerHTML = `<li>No songs found in ${folder}.</li>`;
-      return [];
+
+    // Sanitize paths locally
+    let sanitizedSongs = songs.map((song) =>
+      song.replace("/songs/ncs/ncs/", "/songs/ncs/") // Adjust the sanitization as per your need
+    );
+
+    // Update the UI with sanitized song names
+    let songUl = document.querySelector(".songList").getElementsByTagName("ul")[0];
+    songUl.innerHTML = ""; // Clear the current list
+    for (const song of sanitizedSongs) {
+      let displayName = song.split("/").pop(); // Display only the file name
+      songUl.innerHTML += `
+        <li>
+          <img class="invert" src="./img/music.svg" alt="music icon">
+          <div class="info">
+            <div>${displayName}</div>
+            <div>NCS</div>
+          </div>
+          <div class="playNow">
+            <span>Play Now</span>
+            <img class="invert" src="./img/play.svg" alt="play icon">
+          </div>
+        </li>`;
     }
-    return songs;
+
+    // Attach click listeners to each song in the list
+    Array.from(document.querySelector(".songList").getElementsByTagName("li")).forEach((element) => {
+      element.addEventListener("click", (e) => {
+        let songName = element.querySelector(".info").firstElementChild.innerHTML.trim();
+        playMusic(songName); // Play the clicked song
+      });
+    });
+
+    return sanitizedSongs; // Return sanitizedSongs if needed
+
   } catch (error) {
-    console.error("Error fetching songs:", error.message);
-    document.querySelector(".songList").innerHTML = `<li>Error loading songs. Please try again.</li>`;
+    console.error("Error fetching songs:", error); // Log any errors
     return [];
   }
 }
+
 
 
 /* play music funtion */
