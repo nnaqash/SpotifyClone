@@ -21,7 +21,7 @@ function secondsToMinutesSeconds(seconds) {
 async function getSongs(folder) {
   currFolder = folder; // Set current folder
   try {
-    let response = await fetch(`http://127.0.0.1:5500/${folder}`); // Fetch the folder contents
+    let response = await fetch(`https://inquisitive-elf-20f436.netlify.app/${folder}`); // Fetch the folder contents
     let textResponse = await response.text(); // Get response text
     let div = document.createElement("div"); // Create a div element to parse the response
     div.innerHTML = textResponse; // Set the innerHTML of the div to the response
@@ -39,7 +39,7 @@ async function getSongs(folder) {
 
     // Sanitize paths locally
     let sanitizedSongs = songs.map((song) =>
-      song.replace("http://127.0.0.1:5500/songs/ncs/ncs/", "http://127.0.0.1:5500/songs/ncs/") // Adjust the sanitization as per your need
+      song.replace("/songs/ncs/ncs/", "/songs/ncs/") // Adjust the sanitization as per your need
     );
 
     // Update the UI with sanitized song names
