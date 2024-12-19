@@ -21,7 +21,7 @@ function secondsToMinutesSeconds(seconds) {
 async function getSongs(folder) {
   currFolder = folder; // Set current folder
   try {
-    let response = await fetch(`http://127.0.0.1:5500/${folder}`); // Fetch the folder contents
+    let response = await fetch(`/${folder}`); // Fetch the folder contents
     let textResponse = await response.text(); // Get response text
     let div = document.createElement("div"); // Create a div element to parse the response
     div.innerHTML = textResponse; // Set the innerHTML of the div to the response
@@ -39,7 +39,7 @@ async function getSongs(folder) {
 
     // Sanitize paths locally
     let sanitizedSongs = songs.map((song) =>
-      song.replace("http://127.0.0.1:5500/songs/ncs/ncs/", "http://127.0.0.1:5500/songs/ncs/") // Adjust the sanitization as per your need
+      song.replace("/songs/ncs/ncs/", "/songs/ncs/") // Adjust the sanitization as per your need
     );
 
     // Update the UI with sanitized song names
@@ -138,14 +138,7 @@ async function displayAlbums() {
 
             // Generate HTML for the album card and append it to the cardsHTML string
             cardsHTML += `
-              <div data-folder="${folder}" class="card">
-                <div class="play-button">
-                  <div class="circle">
-                    <svg width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                      <path d="M8 5L20 12L8 19V5Z" fill="black" />
-                    </svg>
-                  </div>
-                </div>
+              <div data-folder="${folder}" class="card">                
                 <img src="/songs/${folder}/cover.jpg" alt="Album Cover">
                 <h2>${metadata.title}</h2>
                 <p>${metadata.description}</p>
