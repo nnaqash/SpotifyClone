@@ -121,8 +121,8 @@ body {
   justify-content: center;
   align-items: center;
   position: absolute;
-  right: 18px;
-  top: 170px;
+  right: 36px;
+  top: 188px;
   cursor: pointer;
   transition: transform 0.3s ease; /* Smooth scale effect */
 }
@@ -328,7 +328,7 @@ body {
   
   
 }
-.range{
+.range > input{
   cursor: pointer;
 }
 /* Media Queries */
@@ -374,6 +374,7 @@ body {
  
   .cardContainer{
     margin: 0;
+   
     justify-content: center;
 
   }
@@ -393,11 +394,41 @@ body {
     gap: 13px;
     width: 0;
   }
+  .play-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    right: 42px;
+    top: 359px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
 
 }
 
 @media (max-width: 450px){
   .card{
     width: 85vw
+  }
+
+  .play-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    right: 42px;
+    top: 307px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+  }
+
+  .cardContainer {
+    margin: 30px;
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    overflow-y: auto;
+    max-height: 50vh; 
   }
 }
