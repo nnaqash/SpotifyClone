@@ -1,141 +1,110 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="img/vecteezy_a-tropical-palm-tree-vector-silhouette-isolated-on-a-white_35062317.svg" type="image/x-icon">
-    <link rel="stylesheet" href="style.css"/>
-    <link rel="stylesheet" href="utility.css"/>
-    <title>BreezyBeats</title>
-  </head>
-  <body>
-    <!-- main container to hold left and right boxes -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/utility.css">
+    <title>Spotify - Web Player: Music for everyone</title>
+</head>
+
+<body>
     <div class="container flex bg-black">
-      <!-- creating two boxes to divide the design -->
-      <!-- box 1 -->
-      <div class="left rounded">
-        <div class="close">
-          <img src="/img/close.svg" alt="close icon" srcset="">
-        </div>
-        <!-- box left have two boxes of its own Home and library -->
-        <!-- Leftbox1 Home -->
-        <div class="home m-1 p-1 bg-grey rounded">
-          <ul>
-            <li><img class="invert" src="./img/home.svg" alt="home" />Home</li>
-            <!-- home icon -->
-            <li>
-              <img class="invert" src="./img/search.svg" alt="search" />Search
-            </li>
-            <!-- search icon -->
-          </ul>
-          <div class="logo">
-            <img class="" src="./img/a7qd59mpx.png" height="120" width="120" alt="logo"/>
-          </div>
+        <div class="left">
+            <div class="close">
+                <img width="30"  src="img/close.svg" alt="">
+            </div>
+            <div class="home bg-grey rounded m-1 p-1">                
+                <ul>
+                    <li><img class="invert" src="img/home.svg" alt="home">Home</li>
+                    <li><img class="invert" src="img/search.svg" alt="search">Search</li>
+                </ul>
+                <div class="logo"><img width="110" src="img/logo.png" alt="logo icon"></div>
+            </div>
+
+            <div class="library bg-grey rounded m-1 p-1">
+                <div class="heading">
+                    <img class="invert" src="img/playlist.svg" alt="library icon">
+                    <h2>
+                        Your Library
+                    </h2>
+                </div>
+
+                <div class="songList">
+
+                    <ul>
+
+                    </ul>
+                </div>
+
+                <div class="footer">
+                    <div><a href="https://www.spotify.com/jp/legal/"><span>Legal</span></a></div>
+                    <div><a href="https://www.spotify.com/jp/privacy/"><span>Privacy Center</span></a></div>
+                    <div><a href="https://www.spotify.com/jp/legal/privacy-policy/"><span>Privacy Policy</span></a>
+                    </div>
+                    <div><a href="https://www.spotify.com/jp/legal/cookies-policy/"><span>Cookies</span></a></div>
+                    <div><a href="https://www.spotify.com/jp/legal/privacy-policy/#s3"><span>About Ads</span></a></div>
+                    <div><a href="https://www.spotify.com/jp/accessibility/"><span>Accessibility</span></a></div>
+                </div>
+            </div>
+
 
         </div>
-        <!-- LeftBox2 Library -->
-        <div class="library bg-grey rounded m-1 p-1">
-          <div class="heading">
-            <img class="invert" src="./img/playlist.svg" alt="library icon" />
-            <h2>Your Library</h2>
-          </div>
-          <!-- list of all songs in the library -->
-          <div class="songList">
-            <ul>
-              <!-- <li>
-              </li> -->
-            </ul>
-          </div>
-          <!-- footer in the left box -->
-          <div class="footer">
-            <div>
-              <a href="https://www.spotify.com/jp/legal/"><span>Legal</span></a>
-            </div>
-            <div>
-              <a href="https://www.spotify.com/jp/privacy/"
-                ><span>Privacy Center</span></a
-              >
-            </div>
-            <div>
-              <a href="https://www.spotify.com/jp/legal/privacy-policy/"
-                ><span>Privacy Policy</span></a
-              >
-            </div>
-            <div>
-              <a href="https://www.spotify.com/jp/legal/cookies-policy/"
-                ><span>Cookies</span></a
-              >
-            </div>
-            <div>
-              <a href="https://www.spotify.com/jp/legal/privacy-policy/#s3"
-                ><span>About Ads</span></a
-              >
-            </div>
-            <div>
-              <a href="https://www.spotify.com/jp/accessibility/"
-                ><span>Accessibility</span></a
-              >
-            </div>
-          </div>
-        </div>
-      </div>
-      <!-- box 2 -->
-      <div class="right bg-grey rounded">
-        <div class="header">          
-          <div class="nav">
-            <div class="hamburgerContainer">
-              <img width="40" class="invert hamburger" src="img/hamburger.svg" alt="hamburger icon"> 
-            </div>
-          </div>
-          <h1>BreezyBeats</h1>
-          <!-- Login and signup button -->
-          <div class="buttons">
-            <button class="signupbtn">Sign Up</button>
-            <button class="loginbtn">Log in</button>
-          </div>
-        </div>
-        <div class="spotifyPlaylists">
-          <h1>BreezyBeats Playlists</h1>
-          <div class="cardContainer">           
-          </div>
-          <!-- play button -->
-          <div class="playbar">
-            <div class="seekbar">
-              <div class="gola"></div>
-            </div>
-            <div class="aboveBar">
-              <div class="songsInfo"></div>
-              <div class="songsbuttons">
-                <img id="prev" src="./img/prevsong.svg" alt="icons for previous song" class="prev"/>
-                <img id="play" src="./img/pause.svg" alt="icons for play song" class="play" />
-                <img id="next" src="./img/nextsong.svg" alt="icons for next song" class="next"/>
-              </div>
-              <div class="volTime">
-                <div class="songtime"></div>
-                <div class="volume">
-                  <img src="./img/volume.svg" alt="volume icon">
-                  <div class="range">
-                    <input type="range" name="volume" id="">
-                  </div>
+        <div class="right bg-grey rounded">
+            <div class="header">
+                <div class="nav">
+                    <div class="hamburgerContainer">
+
+                        <img width="40" class="invert hamburger" src="img/hamburger.svg" alt="hamburger icon">                        
+                    </div>
                 </div>
-              </div>
+                <h1>BreezyBeats</h1>
+                <div class="buttons">
+                    <button class="signupbtn">Sign up</button>
+                    <button class="loginbtn">Log in</button>
+                </div>
             </div>
-          </div>
+            <div class="spotifyPlaylists">
+                <h1>Breezy Playlists</h1>
+                <div class="cardContainer">  </div>
+                <div class="playbar">
+                    <div class="seekbar">
+                        <div class="circle">
+
+                        </div>
+                    </div>
+                    <div class="abovebar">
+
+
+                        <div class="songinfo">
+
+                        </div>
+                        <div class="songbuttons">
+                            <img width="35" id="previous" src="img/prevsong.svg" alt="previous song icon">
+                            <img width="35" id="play" src="img/play.svg" alt="play song icon">
+                            <img width="35" id="next" src="img/nextsong.svg" alt="next song icon">
+                        </div>
+                        <div class="timevol">
+
+                       
+                        <div class="songtime">
+
+                        </div>
+                        <div class="volume">
+                            <img width="25" src="img/volume.svg" alt="volume icon">
+                            <div class="range">
+                                <input type="range" name="volume" id="range slider">
+                            </div>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
     </div>
-    <script src="./script.js"></script>
-  </body>
+    <script src="js/script.js"></script>
+</body>
+
 </html>
-<!-- 5:01:15 stopped 19/12 -->
-<!-- 4:36:25 stopped 19/12 -->
-<!-- 4:00:05 stopped 16/12 -->
-<!-- 3:45:00 stopped 14/12 -->
-<!-- 2:58:10 stopped 11/12 -->
-<!-- 2:47:12 stopped 10/12 -->
-<!-- 2:41:22 stopped 09/12 -->
-<!-- 2:34:43 stopped 23/11 -->
-<!-- 2:10:34 stopped 22/11 -->
-<!-- 1:50:56 stopped 19/11 -->
-<!-- 1:35:43 stopped -->
-<!-- 1:04:43 stopped -->
