@@ -1,4 +1,5 @@
 Creating a Music Player App
+Link to try and view the app: https://breezybeatsmusic.freewebhostmost.com/
 
 A simple music player app built to refresh and enhance my skills in HTML, CSS, and JavaScript. This project takes inspiration from Spotify's design and replicates the core design and functionality of the Spotify online web version.
 
